@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Titilayo Odeyemi — Generative AI for Work & Research</title>
+  <meta name="description" content="Portfolio website for the 8-week 'Generative AI for Work & Research' course. About me, course overview, and weekly submissions." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg: #0e1324;
+      --card: rgba(255,255,255,0.06);
+      --muted: #8fa1c7;
+      --text: #eef2ff;
+      --accent1: #2d7ef7; /* primary blue */
+      --accent2: #5aa9ff;
+      --accent3: #7ad7ff;
+      --cta: #8bd24b; /* lime CTA */
+      --ring: 0 0 0 1px rgba(255,255,255,0.06), 0 0 0 8px rgba(45,126,247,0.10);
+      --radius-2xl: 22px;
+      --shadow-soft: 0 10px 30px rgba(0,0,0,0.35), inset 0 0 0 1px rgba(255,255,255,0.05);
+      --grad-hero: linear-gradient(180deg, #2d7ef7 0%, #1f5fe0 60%, #1846ad 100%);
+      --grad-card: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.02));
+      --glass: backdrop-filter: blur(12px);
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0; background:var(--bg); color:var(--text);
+      font-family:Inter, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji";
+      line-height:1.6;
+    }
+    a{color:inherit; text-decoration:none}
+    .container{max-width:1100px; margin:0 auto; padding:0 20px}
+    /* Header */
+    header{
+      position:sticky; top:0; z-index:50; backdrop-filter: blur(10px);
+      background: linear-gradient(180deg, rgba(11,13,21,0.85), rgba(11,13,21,0.55));
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .nav{display:flex; align-items:center; justify-content:space-between; padding:16px 0}
+    .brand{display:flex; align-items:center; gap:12px}
+    .logo{
+      width:40px; height:40px; border-radius:12px;
+      background: conic-gradient(from 210deg, var(--accent1), var(--accent2), var(--accent3), var(--accent1));
+      box-shadow: 0 6px 18px rgba(109,157,251,0.35);
+    }
+    .brand h1{font-size:18px; letter-spacing:0.2px; margin:0; font-weight:700}
+    .nav a{font-weight:600; opacity:0.9}
+    .nav-links{display:flex; gap:22px}
+    .nav a:hover{opacity:1}
+    /* Hero */
+    .hero{
+      background: var(--grad-hero);
+      padding: 84px 0 0;
+      color:#fff; position:relative; overflow:hidden;
+    }
+    .hero .container{display:grid; grid-template-columns:1.2fr .9fr; gap:28px}
+    @media (max-width: 900px){ .hero .container{grid-template-columns:1fr} }
+    .hero::after{ content:""; position:absolute; inset:auto -10% 0 -10%; height:120px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.12), rgba(255,255,255,0)); filter:blur(20px)}
+    .title{font-family: "Playfair Display", serif; font-size:52px; line-height:1.08; margin:8px 0 12px}
+    .subtitle{font-size:18px; color:#e8f0ff; max-width:720px}
+    .badges{display:flex; gap:12px; flex-wrap:wrap; margin:22px 0 0}
+    .badge{ padding:8px 12px; border-radius:999px; background:rgba(255,255,255,0.18); border:1px solid rgba(255,255,255,0.35); box-shadow:var(--shadow-soft); font-size:13px; color:#fff }
+    .cta-row{display:flex; gap:14px; margin-top:26px; flex-wrap:wrap}
+    .btn{ padding:12px 16px; border-radius:14px; border:1px solid rgba(255,255,255,0.25); background: linear-gradient(180deg, rgba(255,255,255,0.18), rgba(255,255,255,0.08)); box-shadow: var(--shadow-soft); font-weight:800; letter-spacing:0.2px }
+    .btn.primary{background:linear-gradient(90deg, var(--cta), #5fbf2e); border-color: rgba(0,0,0,0.08); color:#08230a}
+    .btn.alt{background:linear-gradient(90deg, rgba(255,255,255,0.25), rgba(255,255,255,0.10));}
+    .eyebrow{font-size:12px; letter-spacing:2.5px; text-transform:uppercase; color:#d7e6ff}
+
+    /* Feature strip */
+    .feature-strip{ margin-top:36px; background: rgba(255,255,255,0.10); border-top:1px solid rgba(255,255,255,0.25); }
+    .feature-strip .inner{ max-width:1100px; margin:0 auto; padding:14px 20px; display:grid; grid-template-columns:repeat(4,1fr); gap:10px }
+    .feature{display:flex; align-items:center; gap:10px; font-weight:700}
+    .feature svg{width:18px;height:18px;opacity:.9}
+
+    /* Sections */
+    section{padding:70px 0}
+    .section-head{display:flex; align-items:flex-end; justify-content:space-between; gap:18px; margin-bottom:26px}
+    .section-head h2{font-family:"Playfair Display", serif; font-size:30px; margin:0}
+    .muted{color:var(--muted)}
+    .card{background:var(--card); border:1px solid rgba(255,255,255,0.08); border-radius:var(--radius-2xl); padding:22px; box-shadow:var(--shadow-soft)}
+    .grid{display:grid; gap:18px}
+    .grid.cols-2{grid-template-columns: repeat(2, minmax(0,1fr))}
+    .grid.cols-3{grid-template-columns: repeat(3, minmax(0,1fr))}
+    .grid.cols-4{grid-template-columns: repeat(4, minmax(0,1fr))}
+    @media (max-width: 900px){
+      .grid.cols-2{grid-template-columns:1fr}
+      .grid.cols-3{grid-template-columns:1fr}
+      .grid.cols-4{grid-template-columns:1fr}
+      .title{font-size:36px}
+    }
+    .list{display:grid; gap:8px; margin:0; padding:0 0 0 18px}
+    .pill{
+      display:inline-flex; align-items:center; gap:10px; padding:10px 12px; border-radius:14px;
+      background:var(--grad-card); border:1px solid rgba(255,255,255,0.08); box-shadow:var(--shadow-soft);
+      font-size:13px
+    }
+    .kpis{display:flex; gap:16px; flex-wrap:wrap}
+    .kpi{flex:1 1 160px; padding:16px; border-radius:16px; background:var(--grad-card); border:1px solid rgba(255,255,255,0.08); text-align:center}
+    .kpi strong{display:block; font-size:22px}
+
+    /* Weekly cards */
+    .week-card{position:relative; overflow:hidden}
+    .week-card .tag{position:absolute; top:12px; right:12px; font-size:12px; padding:6px 10px; border-radius:999px; background:rgba(109,157,251,0.18); border:1px solid rgba(109,157,251,0.4)}
+    .week-card h3{margin:0 0 6px}
+    .week-card p{margin:0 0 12px}
+    .week-card a{display:inline-block}
+
+    /* Footer */
+    footer{padding:38px 0 56px; color:var(--muted); border-top:1px solid rgba(255,255,255,0.06)}
+    .footer-links{display:flex; gap:16px; flex-wrap:wrap}
+
+    /* Fancy borders */
+    .rainbow-border{
+      position:relative; border-radius:var(--radius-2xl); padding:1px; background:
+        linear-gradient(120deg, rgba(109,157,251,0.7), rgba(162,109,251,0.7), rgba(75,209,197,0.7));
+    }
+    .rainbow-border > .inner{border-radius:var(--radius-2xl); background:var(--card); padding:22px}
+
+    /* Small accents */
+    .dot{width:6px;height:6px;border-radius:999px;background:currentColor;display:inline-block;opacity:.75}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <div class="brand">
+        <div class="logo" aria-hidden="true"></div>
+        <h1>Generative AI for Work & Research — Portfolio</h1>
+      </div>
+      <nav class="nav-links">
+        <a href="#about">About me</a>
+        <a href="#course">About the course</a>
+        <a href="#weeks">Weekly submissions</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container">
+      <div>
+        <div class="eyebrow">Portfolio • 8‑week live cohort</div>
+        <h2 class="title">Generative AI for Work & Research</h2>
+        <p class="subtitle">I’m Titilayo Odeyemi, a finance professional exploring how AI can automate analysis, streamline research, and communicate insights with clarity. Follow my weekly builds and the final capstone here.</p>
+        <div class="badges">
+          <span class="badge">Lagos, Nigeria</span>
+          <span class="badge">ICAN (ACA)</span>
+          <span class="badge">QuickBooks • SAP • Excel</span>
+        </div>
+        <div class="cta-row">
+          <a href="#weeks" class="btn primary">See Weekly Work</a>
+          <a href="#about" class="btn alt">About Me</a>
+        </div>
+      </div>
+      <div>
+        <div class="card" style="background:rgba(255,255,255,0.14); border-color:rgba(255,255,255,0.35); box-shadow:var(--shadow-soft)">
+          <h3 style="margin-top:0">Quick overview</h3>
+          <ul class="list">
+            <li>Practical, hands‑on modules each week</li>
+            <li>No‑code friendly tools & demos</li>
+            <li>Assignments with shareable artifacts</li>
+            <li>Capstone & final showcase</li>
+          </ul>
+          <a href="#course" class="btn" style="margin-top:8px; display:inline-block">View Course Modules</a>
+        </div>
+      </div>
+    </div>
+    <div class="feature-strip">
+      <div class="inner">
+        <div class="feature">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M4 5h16v2H4zm0 6h10v2H4zm0 6h16v2H4z"/></svg>
+          Docs & Sites
+        </div>
+        <div class="feature">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M3 13h18v2H3zm0-6h18v2H3zm0 12h18v2H3z"/></svg>
+          Data Analysis
+        </div>
+        <div class="feature">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 100 20 10 10 0 000-20zm1 11h5a7 7 0 01-6 6v-6H7a7 7 0 016-6v6z"/></svg>
+          Research Tools
+        </div>
+        <div class="feature">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M4 4h6l2 3h8v13H4z"/></svg>
+          Automation
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <main class="container">
+    <!-- ABOUT ME -->
+    <section id="about">
+      <div class="section-head">
+        <h2>About me</h2>
+        <p class="muted">Finance, compliance & AI‑assisted productivity</p>
+      </div>
+      <div class="grid cols-2">
+        <div class="card">
+          <p>I'm a detail‑oriented finance professional with 7+ years delivering donor‑funded project finance and internal controls across Nigerian NGOs and development programs. I manage large budgets, strengthen audit readiness, and build practical reporting systems that reduce discrepancies and speed up decision‑making.</p>
+          <div class="kpis" aria-label="highlights">
+            <div class="kpi"><strong>₦1.7B+</strong>annual portfolio oversight</div>
+            <div class="kpi"><strong>90%↓</strong>discrepancy reduction through controls</div>
+            <div class="kpi"><strong>80%↑</strong>reporting efficiency with ERP + Excel</div>
+          </div>
+          <p class="muted" style="margin-top:12px">Tools I use: QuickBooks, SAP, Oracle Financials, Sage, Excel, Dynamics 365.</p>
+        </div>
+        <div class="rainbow-border">
+          <div class="inner">
+            <h3 style="margin-top:0">What I'm learning in this course</h3>
+            <ul class="list">
+              <li>Explain how LLMs work and generate structured outputs (Markdown/LaTeX/HTML).</li>
+              <li>Use AI assistants for data analysis, dashboards, and automated reporting.</li>
+              <li>Apply GenAI to literature reviews, text analysis, and knowledge synthesis.</li>
+              <li>Build custom GPTs and simple chatbots connected to research materials.</li>
+              <li>Design automation flows and browser agents for repetitive tasks.</li>
+              <li>Create clear presentations, figures, and summaries for different audiences.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT THE COURSE -->
+    <section id="course">
+      <div class="section-head">
+        <h2>About the course</h2>
+        <p class="muted">8‑week live bootcamp • no‑code tools • practical projects</p>
+      </div>
+
+      <div class="grid cols-3">
+        <div class="card">
+          <h3>Format</h3>
+          <ul class="list">
+            <li>Weekly live workshops & help sessions</li>
+            <li>Private community + personalized feedback</li>
+            <li>Capstone project coaching & showcase</li>
+            <li>Shareable certificate • Lifetime tutorial access</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Grading</h3>
+          <ul class="list">
+            <li>Online quizzes — 15%</li>
+            <li>Workshop assignments — 35%</li>
+            <li>Attendance & participation — 10%</li>
+            <li>Final project — 40%</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Why it stands out</h3>
+          <p class="muted">University‑backed, hands‑on, and focused on building real AI workflows for research and work.</p>
+        </div>
+      </div>
+
+      <div class="grid cols-3" style="margin-top:18px">
+        <div class="card">
+          <h3>Module 1 — Websites, Docs & Presentations</h3>
+          <p class="muted">LLM basics, generating Markdown/LaTeX/HTML, building simple sites with no‑code tools, and presentation design.</p>
+        </div>
+        <div class="card">
+          <h3>Module 2 — AI‑Automated Data Analysis</h3>
+          <p class="muted">Code Interpreter, Julius, dashboards, dataset processing, automated visuals and reports, spreadsheet automations.</p>
+        </div>
+        <div class="card">
+          <h3>Module 3 — GenAI for Research & Text</h3>
+          <p class="muted">Literature search (Elicit/LiteRev), text classification, sentiment analysis, knowledge maps, summarization systems.</p>
+        </div>
+        <div class="card">
+          <h3>Module 4 — Custom GPTs & Chatbots</h3>
+          <p class="muted">Chat architecture, context windows & RAG, Botpress bots, integrating knowledge bases.</p>
+        </div>
+        <div class="card">
+          <h3>Module 5 — AI for Task Automation</h3>
+          <p class="muted">Agent‑based flows, email response automations, browser control agents.</p>
+        </div>
+        <div class="card">
+          <h3>Module 6 — Communication & Outreach</h3>
+          <p class="muted">AI‑generated summaries, scientific figures, video abstracts, visualization prompts, content scheduling.</p>
+        </div>
+        <div class="card">
+          <h3>Module 7 — Capstone & Showcase</h3>
+          <p class="muted">Progress checks, peer feedback, final project presentation, public Q&A.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- WEEKLY SUBMISSIONS -->
+    <section id="weeks">
+      <div class="section-head">
+        <h2>My weekly submissions</h2>
+        <p class="muted">Placeholders for now — links coming soon</p>
+      </div>
+
+      <div class="grid cols-3">
+        <!-- 8 weeks -->
+        <div class="card week-card">
+          <span class="tag">Week 1</span>
+          <h3>LLM Fundamentals & Structured Outputs</h3>
+          <p class="muted">Prompting for Markdown/LaTeX/HTML; website scaffold.</p>
+          <a class="btn" href="#">Add link</a>
+        </div>
+        <div class="card week-card">
+          <span class="tag">Week 2</span>
+          <h3>Code Interpreter for Quick Analysis</h3>
+          <p class="muted">Upload → analyze → visualize → report.</p>
+          <a class="btn" href="#">Add link</a>
+        </div>
+        <div class="card week-card">
+          <span class="tag">Week 3</span>
+          <h3>Text Mining & Literature Review</h3>
+          <p class="muted">Elicit/LiteRev pipelines; synthesis notes.</p>
+          <a class="btn" href="#">Add link</a>
+        </div>
+        <div class="card week-card">
+          <span class="tag">Week 4</span>
+          <h3>Custom GPT / Mini Chatbot</h3>
+          <p class="muted">Domain knowledge + retrieval prototype.</p>
+          <a class="btn" href="#">Add link</a>
+        </div>
+        <div class="card week-card">
+          <span class="tag">Week 5</span>
+          <h3>Automation Flows</h3>
+          <p class="muted">Email triage, browser agents, batch processing.</p>
+          <a class="btn" href="#">Add link</a>
+        </div>
+        <div class="card week-card">
+          <span class="tag">Week 6</span>
+          <h3>Communications & Visuals</h3>
+          <p class="muted">Figures, videos, and outreach plan.</p>
+          <a class="btn" href="#">Add link</a>
+        </div>
+        <div class="card week-card">
+          <span class="tag">Week 7</span>
+          <h3>Capstone Sprint</h3>
+          <p class="muted">Peer feedback and iteration.</p>
+          <a class="btn" href="#">Add link</a>
+        </div>
+        <div class="card week-card">
+          <span class="tag">Week 8</span>
+          <h3>Final Showcase</h3>
+          <p class="muted">Presentation and public Q&A.</p>
+          <a class="btn" href="#">Add link</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="grid cols-2">
+        <div>
+          <strong>Thanks for visiting.</strong>
+          <p class="muted">This site was built without frameworks and rendered in ChatGPT Canvas. To prevent spam, my email address is intentionally omitted.</p>
+        </div>
+        <div class="footer-links" aria-label="links">
+          <a class="pill" href="#about"><span class="dot"></span> About</a>
+          <a class="pill" href="#course"><span class="dot"></span> Course</a>
+          <a class="pill" href="#weeks"><span class="dot"></span> Weekly</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
