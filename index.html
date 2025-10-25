@@ -66,7 +66,7 @@
     .badges{display:flex; gap:12px; flex-wrap:wrap; margin:22px 0 0}
     .badge{ padding:8px 12px; border-radius:999px; background:rgba(255,255,255,0.18); border:1px solid rgba(255,255,255,0.35); box-shadow:var(--shadow-soft); font-size:13px; color:#fff }
     .cta-row{display:flex; gap:14px; margin-top:26px; flex-wrap:wrap}
-    .btn{ padding:12px 16px; border-radius:14px; border:1px solid rgba(255,255,255,0.25); background: linear-gradient(180deg, rgba(255,255,255,0.18), rgba(255,255,255,0.08)); box-shadow: var(--shadow-soft); font-weight:800; letter-spacing:0.2px }
+    .btn{ padding:12px 16px; border-radius:14px; border:1px solid rgba(255,255,255,0.25); background: linear-gradient(180deg, rgba(255,255,255,0.18), rgba(255,255,255,0.08)); box-shadow: var(--shadow-soft); font-weight:800; letter-spacing:0.2px; cursor:pointer }
     .btn.primary{background:linear-gradient(90deg, var(--cta), #5fbf2e); border-color: rgba(0,0,0,0.08); color:#08230a}
     .btn.alt{background:linear-gradient(90deg, rgba(255,255,255,0.25), rgba(255,255,255,0.10));}
     .eyebrow{font-size:12px; letter-spacing:2.5px; text-transform:uppercase; color:#d7e6ff}
@@ -103,6 +103,31 @@
     .kpi{flex:1 1 160px; padding:16px; border-radius:16px; background:var(--grad-card); border:1px solid rgba(255,255,255,0.08); text-align:center}
     .kpi strong{display:block; font-size:22px}
 
+    /* Project cards */
+    .project-card .tag{
+      display:inline-block;
+      font-size:12px;
+      padding:6px 10px;
+      border-radius:999px;
+      background:rgba(139,210,75,0.15);
+      border:1px solid rgba(139,210,75,0.4);
+      font-weight:600;
+      color:#d8ffb2;
+      margin-bottom:10px;
+    }
+    .project-card h3{
+      margin:0 0 8px;
+      font-size:18px;
+      font-weight:600;
+      color:#fff;
+    }
+    .project-card p{
+      margin:0 0 14px;
+      font-size:14px;
+      color:var(--muted);
+      line-height:1.5;
+    }
+
     /* Weekly cards */
     .week-card{position:relative; overflow:hidden}
     .week-card .tag{position:absolute; top:12px; right:12px; font-size:12px; padding:6px 10px; border-radius:999px; background:rgba(109,157,251,0.18); border:1px solid rgba(109,157,251,0.4)}
@@ -138,6 +163,7 @@
       <nav class="nav-links">
         <a href="#about">About me</a>
         <a href="#course">About the course</a>
+        <a href="#projects">Projects</a>
         <a href="#weeks">Weekly submissions</a>
       </nav>
     </div>
@@ -146,7 +172,7 @@
   <section class="hero">
     <div class="container">
       <div>
-        <div class="eyebrow">Portfolio • 8‑week live cohort</div>
+        <div class="eyebrow">Portfolio • 8-week live cohort</div>
         <h2 class="title">Generative AI for Work & Research</h2>
         <p class="subtitle">I’m Titilayo Odeyemi, a finance professional exploring how AI can automate analysis, streamline research, and communicate insights with clarity. Follow my weekly builds and the final capstone here.</p>
         <div class="badges">
@@ -163,8 +189,8 @@
         <div class="card" style="background:rgba(255,255,255,0.14); border-color:rgba(255,255,255,0.35); box-shadow:var(--shadow-soft)">
           <h3 style="margin-top:0">Quick overview</h3>
           <ul class="list">
-            <li>Practical, hands‑on modules each week</li>
-            <li>No‑code friendly tools & demos</li>
+            <li>Practical, hands-on modules each week</li>
+            <li>No-code friendly tools & demos</li>
             <li>Assignments with shareable artifacts</li>
             <li>Capstone & final showcase</li>
           </ul>
@@ -199,11 +225,11 @@
     <section id="about">
       <div class="section-head">
         <h2>About me</h2>
-        <p class="muted">Finance, compliance & AI‑assisted productivity</p>
+        <p class="muted">Finance, compliance & AI-assisted productivity</p>
       </div>
       <div class="grid cols-2">
         <div class="card">
-          <p>I'm a detail‑oriented finance professional with 7+ years delivering donor‑funded project finance and internal controls across Nigerian NGOs and development programs. I manage large budgets, strengthen audit readiness, and build practical reporting systems that reduce discrepancies and speed up decision‑making.</p>
+          <p>I'm a detail-oriented finance professional with 7+ years delivering donor-funded project finance and internal controls across Nigerian NGOs and development programs. I manage large budgets, strengthen audit readiness, and build practical reporting systems that reduce discrepancies and speed up decision-making.</p>
           <div class="kpis" aria-label="highlights">
             <div class="kpi"><strong>₦1.7B+</strong>annual portfolio oversight</div>
             <div class="kpi"><strong>90%↓</strong>discrepancy reduction through controls</div>
@@ -227,11 +253,46 @@
       </div>
     </section>
 
+    <!-- PROJECTS / WORKSHOP OUTPUTS -->
+    <section id="projects">
+      <div class="section-head">
+        <h2>Projects</h2>
+        <p class="muted">Selected work from workshops and assignments</p>
+      </div>
+
+      <div class="grid cols-2">
+        <div class="card project-card">
+          <div class="tag">Workshop 2 • Automated Data Analysis</div>
+          <h3>Exploring Global Development Indicators with AI</h3>
+          <p>
+            Analyzed Gapminder data to explore relationships between two global indicators using AI tools. The workflow included cleaning the dataset, running exploratory analysis, generating visualizations, and interpreting trends — all with AI-assisted statistical reasoning and narrative reporting.
+          </p>
+          <a class="btn primary" style="text-decoration:none; font-size:13px; line-height:1.2; padding:10px 14px; font-weight:700; display:inline-block"
+             href="https://github.com/titilayojoann/graph-ai-portfolio/blob/e8bb322fc80a4cf67c67f45127c1f84bb5f65417/WORKSHOP%202.pdf"
+             target="_blank" rel="noopener noreferrer">
+            View full report (PDF)
+          </a>
+        </div>
+
+        <!-- You can add more projects/cards here later if needed -->
+        <div class="card project-card" style="opacity:0.6">
+          <div class="tag" style="background:rgba(255,255,255,0.08); border-color:rgba(255,255,255,0.2); color:#fff;">Coming soon</div>
+          <h3>Capstone Preview</h3>
+          <p>
+            End-of-program capstone applying AI to a real workflow in finance, compliance, or environmental monitoring. Full write-up and demo link will appear here after presentation.
+          </p>
+          <a class="btn alt" style="font-size:13px; line-height:1.2; padding:10px 14px; font-weight:700; display:inline-block">
+            In progress
+          </a>
+        </div>
+      </div>
+    </section>
+
     <!-- ABOUT THE COURSE -->
     <section id="course">
       <div class="section-head">
         <h2>About the course</h2>
-        <p class="muted">8‑week live bootcamp • no‑code tools • practical projects</p>
+        <p class="muted">8-week live bootcamp • no-code tools • practical projects</p>
       </div>
 
       <div class="grid cols-3">
@@ -255,17 +316,17 @@
         </div>
         <div class="card">
           <h3>Why it stands out</h3>
-          <p class="muted">University‑backed, hands‑on, and focused on building real AI workflows for research and work.</p>
+          <p class="muted">University-backed, hands-on, and focused on building real AI workflows for research and work.</p>
         </div>
       </div>
 
       <div class="grid cols-3" style="margin-top:18px">
         <div class="card">
           <h3>Module 1 — Websites, Docs & Presentations</h3>
-          <p class="muted">LLM basics, generating Markdown/LaTeX/HTML, building simple sites with no‑code tools, and presentation design.</p>
+          <p class="muted">LLM basics, generating Markdown/LaTeX/HTML, building simple sites with no-code tools, and presentation design.</p>
         </div>
         <div class="card">
-          <h3>Module 2 — AI‑Automated Data Analysis</h3>
+          <h3>Module 2 — AI-Automated Data Analysis</h3>
           <p class="muted">Code Interpreter, Julius, dashboards, dataset processing, automated visuals and reports, spreadsheet automations.</p>
         </div>
         <div class="card">
@@ -278,11 +339,11 @@
         </div>
         <div class="card">
           <h3>Module 5 — AI for Task Automation</h3>
-          <p class="muted">Agent‑based flows, email response automations, browser control agents.</p>
+          <p class="muted">Agent-based flows, email response automations, browser control agents.</p>
         </div>
         <div class="card">
           <h3>Module 6 — Communication & Outreach</h3>
-          <p class="muted">AI‑generated summaries, scientific figures, video abstracts, visualization prompts, content scheduling.</p>
+          <p class="muted">AI-generated summaries, scientific figures, video abstracts, visualization prompts, content scheduling.</p>
         </div>
         <div class="card">
           <h3>Module 7 — Capstone & Showcase</h3>
@@ -362,6 +423,7 @@
         <div class="footer-links" aria-label="links">
           <a class="pill" href="#about"><span class="dot"></span> About</a>
           <a class="pill" href="#course"><span class="dot"></span> Course</a>
+          <a class="pill" href="#projects"><span class="dot"></span> Projects</a>
           <a class="pill" href="#weeks"><span class="dot"></span> Weekly</a>
         </div>
       </div>
