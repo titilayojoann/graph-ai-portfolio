@@ -1,106 +1,216 @@
-Skip to content
-You said:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Titilayo Joann – Portfolio</title>
+  <meta name="description" content="Finance professional with 10+ years in donor-funded projects, internal controls, and ERP-based reporting. USAID compliance, FP&A, and audit readiness." />
+  <style>
+    :root{
+      --bg-start:#0f172a;   /* slate-900 */
+      --bg-mid:#1f285a;     /* custom deep indigo */
+      --bg-end:#3b82f6;     /* blue-500 */
+      --accent:#a855f7;     /* fuchsia-violet */
+      --accent-2:#22d3ee;   /* cyan */
+      --text:#e5e7eb;       /* gray-200 */
+      --muted:#94a3b8;      /* slate-400 */
+      --card:#0b1023a6;     /* glass */
+      --line:#33415555;
+      --ring:#a855f766;
+    }
+    /* Reset & base */
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0; color:var(--text); background:radial-gradient(1200px 800px at 10% 10%, #1a2a6c 0%, transparent 60%),
+                                     radial-gradient(1000px 800px at 90% 10%, #2a125a 0%, transparent 60%),
+                                     linear-gradient(135deg,var(--bg-start),var(--bg-mid) 55%, var(--bg-end));
+      font:16px/1.6 system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, "Helvetica Neue", Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      background-attachment: fixed;
+    }
+    a{color:var(--accent-2); text-decoration:none}
+    a:hover{text-decoration:underline}
 
+    /* Layout */
+    header{
+      position:sticky; top:0; z-index:50; backdrop-filter:saturate(180%) blur(10px);
+      background:linear-gradient( to right, #090b2288, #120d2a88);
+      border-bottom:1px solid var(--line);
+    }
+    .nav{max-width:1100px; margin:0 auto; display:flex; align-items:center; justify-content:space-between; padding:10px 16px}
+    .brand{display:flex; align-items:center; gap:10px; font-weight:700; letter-spacing:.5px}
+    .dot{width:10px; height:10px; border-radius:50%; background:conic-gradient(from 90deg, var(--accent), var(--accent-2)); box-shadow:0 0 16px var(--accent)}
+    .nav a{margin-left:18px; padding:8px 10px; border-radius:10px}
+    .nav a:focus, .nav a:hover{outline:none; background:#ffffff14}
 
-•	Build an elegant one page portfolio website for my website. 
-•	Site should be rich with beautiful styling, gradients and sections.
-•	Use my CV, which are given below. The site should have at least the following sections: 
-•	- About me
-•	- Project
-•	- My professional certification and expertise
--   Contacts 
-•	Use Canvas to render the HTML.
-•	Don't use frameworks.
-Don't include my email in the site to avoid spam
+    .container{max-width:1100px; margin:0 auto; padding:0 16px}
 
-Thought for 14s
-ChatGPT said:
-Your one-page portfolio site is ready on Canvas—no frameworks, with bold gradients, neat sections, smooth scrolling, and your email intentionally omitted. It includes:
+    /* Hero */
+    .hero{display:grid; grid-template-columns:1.2fr 1fr; gap:32px; align-items:center; padding:72px 0 40px}
+    .title{font-size:clamp(28px, 4vw, 48px); line-height:1.1; font-weight:800; letter-spacing:.3px}
+    .intro{color:var(--muted); max-width:62ch}
+    .badge{display:inline-flex; align-items:center; gap:8px; padding:8px 12px; border:1px solid var(--ring); border-radius:999px; background:#ffffff10; box-shadow:inset 0 0 0 1px #ffffff10}
+    .cta{display:flex; gap:12px; margin-top:18px; flex-wrap:wrap}
+    .btn{padding:12px 16px; border-radius:14px; border:1px solid var(--ring); background:linear-gradient(135deg, #1f1b3a, #1b2a48);
+         color:var(--text); font-weight:600; cursor:pointer; transition:transform .15s ease, box-shadow .15s ease}
+    .btn:hover{transform:translateY(-2px); box-shadow:0 10px 24px #0007}
+    .btn.alt{background:transparent}
 
-About me
+    .hero-card{border:1px solid var(--line); border-radius:22px; padding:20px; background:linear-gradient(180deg, #0b102380, #0b1023cc);
+               box-shadow:0 10px 40px #0005}
+    .metrics{display:grid; grid-template-columns:repeat(3,1fr); gap:10px; margin-top:10px}
+    .metric{padding:14px; border-radius:16px; background:#070a18cc; border:1px solid var(--line)}
+    .metric h4{margin:0; font-size:20px}
+    .metric p{margin:4px 0 0; color:var(--muted); font-size:14px}
 
-Projects (impact-style case studies drawn from your roles)
+    section{padding:64px 0; border-top:1px solid var(--line)}
+    section h2{font-size:clamp(22px, 3vw, 32px); margin:0 0 18px; letter-spacing:.3px}
+    .section-lead{color:var(--muted); max-width:70ch}
 
-Professional certification & expertise (competencies + tools)
+    /* Cards & grids */
+    .grid{display:grid; gap:16px}
+    .grid.cols-3{grid-template-columns:repeat(3,1fr)}
+    .grid.cols-2{grid-template-columns:repeat(2,1fr)}
+    .card{background:var(--card); border:1px solid var(--line); border-radius:18px; padding:18px}
+    .card h3{margin:0 0 6px}
+    .tag{display:inline-block; padding:6px 10px; border-radius:999px; border:1px solid var(--ring); font-size:12px; margin:6px 6px 0 0}
 
-Contacts (Lagos, phone, LinkedIn—no email)
+    .list{columns:2; gap:28px}
+    .list li{margin:6px 0}
 
-If you want, I can tweak colors, add a “Download CV” button, or swap project blurbs for different highlights.
+    /* Contact */
+    .contact{
+      display:grid; grid-template-columns:1fr 1fr; gap:18px
+    }
+    .contact .item{padding:16px; border:1px dashed var(--ring); border-radius:16px; background:#0c1026aa}
 
-Source for CV details: 
-2042e2da-6a3a-44e2-b9a1-3d32139…
+    /* Footer */
+    footer{padding:28px 0 64px; color:var(--muted); text-align:center}
 
+    /* Responsive */
+    @media (max-width:900px){
+      .hero{grid-template-columns:1fr; padding-top:40px}
+      .metrics{grid-template-columns:1fr 1fr}
+      .grid.cols-3{grid-template-columns:1fr 1fr}
+      .contact{grid-template-columns:1fr}
+    }
+    @media (max-width:620px){
+      .metrics{grid-template-columns:1fr}
+      .grid.cols-3, .grid.cols-2{grid-template-columns:1fr}
+      .list{columns:1}
+    }
+  </style>
+</head>
+<body>
+  <!-- Nav -->
+  <header aria-label="Site navigation">
+    <nav class="nav" role="navigation">
+      <div class="brand"><span class="dot" aria-hidden="true"></span> Titilayo Joann</div>
+      <div>
+        <a href="#about" aria-label="About section">About</a>
+        <a href="#projects" aria-label="Projects section">Projects</a>
+        <a href="#certs" aria-label="Certifications & Expertise">Certifications</a>
+        <a href="#contact" aria-label="Contact section">Contact</a>
+      </div>
+    </nav>
+  </header>
 
+  <main class="container">
+    <!-- Hero -->
+    <section class="hero" id="home">
+      <div>
+        <span class="badge" aria-label="Professional summary badge">Finance • Donor‑Funded Projects • Audit Readiness</span>
+        <h1 class="title">Detail‑oriented Finance Professional for Donor‑Funded Programs</h1>
+        <p class="intro">
+          I help NGO and development projects scale responsibly by building strong financial systems, ensuring 100% donor compliance, and driving reporting efficiency with ERP tools like QuickBooks, SAP, and Oracle.
+        </p>
+        <div class="cta">
+          <a class="btn" href="#projects">See Projects</a>
+          <a class="btn alt" href="#certs">Certifications & Expertise</a>
+        </div>
+      </div>
+      <aside class="hero-card" aria-label="Key career metrics">
+        <h3 style="margin:0 0 8px">Career Highlights</h3>
+        <div class="metrics">
+          <div class="metric"><h4>₦1.7B+</h4><p>Annual USAID project portfolio managed</p></div>
+          <div class="metric"><h4>100%</h4><p>Donor & statutory compliance</p></div>
+          <div class="metric"><h4>−90%</h4><p>Reduction in financial errors via controls</p></div>
+        </div>
+      </aside>
+    </section>
 
-Sources
+    <!-- About -->
+    <section id="about">
+      <h2>About Me</h2>
+      <p class="section-lead">
+        With 10+ years in NGO finance and donor‑funded environments, I align financial operations with program goals across multi‑state offices. I build pre‑approval workflows, standardize coding, and strengthen audit readiness while optimizing QuickBooks and Excel for fast, accurate reporting.
+      </p>
+      <div class="grid cols-2">
+        <div class="card">
+          <h3>Current Role</h3>
+          <p><strong>Finance Officer</strong>, Association for Reproductive and Family Health (ARFH) – ICHSSA 2 (2020–Present). I manage disbursements, supplier payments, tax remittances (WHT, PAYE, pensions), and asset controls—maintaining full compliance and data integrity.</p>
+        </div>
+        <div class="card">
+          <h3>Education</h3>
+          <p><strong>MBA</strong>, University of Suffolk, UK (2023).</p>
+        </div>
+      </div>
+    </section>
 
+    <!-- Projects (experience framed as impact projects) -->
+    <section id="projects">
+      <h2>Projects</h2>
+      <p class="section-lead">Selected, impact‑driven work distilled into project case studies.</p>
+      <div class="grid cols-3">
+        <article class="card" aria-labelledby="p1">
+          <h3 id="p1">ICHSSA‑2 Financial Systems Overhaul</h3>
+          <p>Led financial operations for a USAID‑funded portfolio exceeding ₦1.7B annually. Implemented pre‑approval and standardized coding, cutting errors by <strong>90%</strong> and boosting reporting efficiency by <strong>80%</strong>. Coordinated finance planning and monitoring across 3 state offices.</p>
+          <div>
+            <span class="tag">USAID</span>
+            <span class="tag">Internal Controls</span>
+            <span class="tag">ERP (QuickBooks, Excel)</span>
+          </div>
+        </article>
+        <article class="card" aria-labelledby="p2">
+          <h3 id="p2">LOPIN Multi‑Region Grants Management</h3>
+          <p>Managed multi‑million‑naira grants, streamlined payment cycles and reconciliations across 3 regions. Achieved <strong>−90%</strong> unreconciled balances, <strong>−80%</strong> filing delays, and <strong>−70%</strong> audit queries through disciplined documentation and compliance routines.</p>
+          <div>
+            <span class="tag">PEPFAR</span>
+            <span class="tag">Reconciliations</span>
+            <span class="tag">Compliance</span>
+          </div>
+        </article>
+        <article class="card" aria-labelledby="p3">
+          <h3 id="p3">Cost Control & Forecasting Program</h3>
+          <p>At Idea Konsult, drove cross‑department cost control and forecasting, improving operating margins by <strong>30%</strong> on a ₦600M budget. Enhanced audit outcomes by enforcing error‑proof control systems and timely reporting.</p>
+          <div>
+            <span class="tag">FP&A</span>
+            <span class="tag">Cost Control</span>
+            <span class="tag">Audit Readiness</span>
+          </div>
+        </article>
+      </div>
+    </section>
 
-
-No file chosenNo file chosen
-ChatGPT can make mistakes. Check important info.
-
-214
-215
-216
-217
-218
-219
-220
-221
-222
-223
-224
-225
-226
-227
-228
-229
-230
-231
-232
-233
-234
-235
-236
-237
-238
-239
-240
-241
-242
-243
-244
-245
-246
-247
-248
-249
-250
-251
-252
-253
-254
-255
-256
-257
-258
-259
-260
-261
-262
-263
-264
-265
-266
-267
-268
-269
-270
-271
-272
-273
-274
-275
+    <!-- Certifications & Expertise -->
+    <section id="certs">
+      <h2>Professional Certification & Expertise</h2>
+      <div class="grid cols-2">
+        <div class="card">
+          <h3>Certifications</h3>
+          <ul class="list">
+            <li>Associate Chartered Accountant (ACA)</li>
+            <li>QuickBooks Certified</li>
+            <li>Sage Certified</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Technical Proficiency</h3>
+          <ul class="list">
+            <li>Oracle Financials, SAP, Epicor, Sun Systems, Dynamics 365</li>
+            <li>QuickBooks, Sage, Peachtree, AccountEdge Pro</li>
+            <li>MS Office Suite (Excel, PowerPoint, Word), Outlook</li>
+          </ul>
         </div>
       </div>
 
@@ -162,5 +272,3 @@ ChatGPT can make mistakes. Check important info.
     
 </body>
 </html>
-
-Ask ChatGPT to edit
