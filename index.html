@@ -84,6 +84,18 @@
     }
     .contact .item{padding:16px; border:1px dashed var(--ring); border-radius:16px; background:#0c1026aa}
 
+    /* Consultation form embed */
+    .form-embed.card{padding:0; overflow:hidden}
+    .form-embed header{
+      padding:16px 18px; border-bottom:1px solid var(--line); background:#0c102680
+    }
+    .form-embed .frame-wrap{
+      width:100%;
+      min-height:820px; /* ensures adequate height on mobile/desktop */
+      border:0;
+      display:block;
+    }
+
     /* Footer */
     footer{padding:28px 0 64px; color:var(--muted); text-align:center}
 
@@ -98,6 +110,7 @@
       .metrics{grid-template-columns:1fr}
       .grid.cols-3, .grid.cols-2{grid-template-columns:1fr}
       .list{columns:1}
+      .form-embed .frame-wrap{min-height:900px} /* a bit taller for small screens */
     }
   </style>
 </head>
@@ -110,6 +123,7 @@
         <a href="#about" aria-label="About section">About</a>
         <a href="#projects" aria-label="Projects section">Projects</a>
         <a href="#certs" aria-label="Certifications & Expertise">Certifications</a>
+        <a href="#consultation" aria-label="Contact for Consultation">Consultation</a>
         <a href="#contact" aria-label="Contact section">Contact</a>
       </div>
     </nav>
@@ -119,8 +133,8 @@
     <!-- Hero -->
     <section class="hero" id="home">
       <div>
-        <span class="badge" aria-label="Professional summary badge">Finance • Donor‑Funded Projects • Audit Readiness</span>
-        <h1 class="title">Detail‑oriented Finance Professional for Donor‑Funded Programs</h1>
+        <span class="badge" aria-label="Professional summary badge">Finance • Donor-Funded Projects • Audit Readiness</span>
+        <h1 class="title">Detail-oriented Finance Professional for Donor-Funded Programs</h1>
         <p class="intro">
           I help NGO and development projects scale responsibly by building strong financial systems, ensuring 100% donor compliance, and driving reporting efficiency with ERP tools like QuickBooks, SAP, and Oracle.
         </p>
@@ -143,7 +157,7 @@
     <section id="about">
       <h2>About Me</h2>
       <p class="section-lead">
-        With 10+ years in NGO finance and donor‑funded environments, I align financial operations with program goals across multi‑state offices. I build pre‑approval workflows, standardize coding, and strengthen audit readiness while optimizing QuickBooks and Excel for fast, accurate reporting.
+        With 10+ years in NGO finance and donor-funded environments, I align financial operations with program goals across multi-state offices. I build pre-approval workflows, standardize coding, and strengthen audit readiness while optimizing QuickBooks and Excel for fast, accurate reporting.
       </p>
       <div class="grid cols-2">
         <div class="card">
@@ -157,14 +171,14 @@
       </div>
     </section>
 
-    <!-- Projects (experience framed as impact projects) -->
+    <!-- Projects -->
     <section id="projects">
       <h2>Projects</h2>
-      <p class="section-lead">Selected, impact‑driven work distilled into project case studies.</p>
+      <p class="section-lead">Selected, impact-driven work distilled into project case studies.</p>
       <div class="grid cols-3">
         <article class="card" aria-labelledby="p1">
-          <h3 id="p1">ICHSSA‑2 Financial Systems Overhaul</h3>
-          <p>Led financial operations for a USAID‑funded portfolio exceeding ₦1.7B annually. Implemented pre‑approval and standardized coding, cutting errors by <strong>90%</strong> and boosting reporting efficiency by <strong>80%</strong>. Coordinated finance planning and monitoring across 3 state offices.</p>
+          <h3 id="p1">ICHSSA-2 Financial Systems Overhaul</h3>
+          <p>Led financial operations for a USAID-funded portfolio exceeding ₦1.7B annually. Implemented pre-approval and standardized coding, cutting errors by <strong>90%</strong> and boosting reporting efficiency by <strong>80%</strong>. Coordinated finance planning and monitoring across 3 state offices.</p>
           <div>
             <span class="tag">USAID</span>
             <span class="tag">Internal Controls</span>
@@ -172,8 +186,8 @@
           </div>
         </article>
         <article class="card" aria-labelledby="p2">
-          <h3 id="p2">LOPIN Multi‑Region Grants Management</h3>
-          <p>Managed multi‑million‑naira grants, streamlined payment cycles and reconciliations across 3 regions. Achieved <strong>−90%</strong> unreconciled balances, <strong>−80%</strong> filing delays, and <strong>−70%</strong> audit queries through disciplined documentation and compliance routines.</p>
+          <h3 id="p2">LOPIN Multi-Region Grants Management</h3>
+          <p>Managed multi-million-naira grants, streamlined payment cycles and reconciliations across 3 regions. Achieved <strong>−90%</strong> unreconciled balances, <strong>−80%</strong> filing delays, and <strong>−70%</strong> audit queries through disciplined documentation and compliance routines.</p>
           <div>
             <span class="tag">PEPFAR</span>
             <span class="tag">Reconciliations</span>
@@ -182,7 +196,7 @@
         </article>
         <article class="card" aria-labelledby="p3">
           <h3 id="p3">Cost Control & Forecasting Program</h3>
-          <p>At Idea Konsult, drove cross‑department cost control and forecasting, improving operating margins by <strong>30%</strong> on a ₦600M budget. Enhanced audit outcomes by enforcing error‑proof control systems and timely reporting.</p>
+          <p>At Idea Konsult, drove cross-department cost control and forecasting, improving operating margins by <strong>30%</strong> on a ₦600M budget. Enhanced audit outcomes by enforcing error-proof control systems and timely reporting.</p>
           <div>
             <span class="tag">FP&A</span>
             <span class="tag">Cost Control</span>
@@ -233,6 +247,27 @@
       </div>
     </section>
 
+    <!-- Contact for Consultation (NEW) -->
+    <section id="consultation" aria-label="Contact for Consultation">
+      <h2>Contact for Consultation</h2>
+      <p class="section-lead">
+        Book a consultation for finance systems setup, donor compliance, audit readiness, or FP&amp;A support. Fill the form below and I’ll get back to you.
+      </p>
+      <div class="form-embed card" role="region" aria-label="Consultation form">
+        <header>
+          <strong>Consultation Request Form</strong>
+        </header>
+        <iframe
+          class="frame-wrap"
+          title="Google Form – Consultation"
+          src="https://docs.google.com/forms/d/e/1FAIpQLScO9ddtYwX4Nww4E5ZAuIe6cxZPeKi91szQPFL8ik-jfAJY1Q/viewform?embedded=true"
+          frameborder="0"
+          marginheight="0"
+          marginwidth="0"
+          loading="lazy">Loading…</iframe>
+      </div>
+    </section>
+
     <!-- Contact (no email per request) -->
     <section id="contact">
       <h2>Contact</h2>
@@ -266,9 +301,9 @@
     // Set copyright year
     document.getElementById('y').textContent = new Date().getFullYear();
   </script>
-  
-    <script src="https://cdn.botpress.cloud/webchat/v3.3/inject.js"></script>
-<script src="https://files.bpcontent.cloud/2025/11/06/19/20251106195508-WTLF37T5.js" defer></script>
-    
+
+  <script src="https://cdn.botpress.cloud/webchat/v3.3/inject.js"></script>
+  <script src="https://files.bpcontent.cloud/2025/11/06/19/20251106195508-WTLF37T5.js" defer></script>
 </body>
 </html>
+ 
